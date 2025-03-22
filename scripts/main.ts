@@ -53,7 +53,7 @@ const splitter = new RecursiveCharacterTextSplitter({
 const client = new DataAPIClient(ASTRA_DB_APPLICATION_TOKEN);
 const db = client.db(ASTRA_DB_API_ENDPOINT!,{namespace: ASTRA_DB_NAMESPACE})
 
-const converVectorAndSave = async(pageData: string[]) => {
+const convertVectorAndSave = async(pageData: string[]) => {
     for (const page of pageData){
         const pageChunks = await splitter.splitText(page);
         const collection = await db.collection(ASTRA_DB_COLLECTION!);
