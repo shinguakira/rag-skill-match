@@ -87,7 +87,7 @@ const main = async() => {
     await createCollection();
     const pageData = await scrapePage();
     if(pageData !== undefined){
-        await converVectorAndSave(pageData);
+        await convertVectorAndSave(pageData);
     }
 }
 
