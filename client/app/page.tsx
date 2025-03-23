@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar } from '@radix-ui/react-avatar';
-import { useChat } from 'ai/react';
+import { useChat } from '@ai-sdk/react';
 import { Send } from 'lucide-react';
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url(/girl-background.jpg)',
+          backgroundImage: 'url(/bgImageReact.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
