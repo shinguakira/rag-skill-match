@@ -25,7 +25,7 @@ export default function Home() {
               return (
                 <div
                   key={index}
-                  className={`items-enc mb-4 flex ${message.role === 'assistant' ? 'justify-start' : 'justify-end'}`}
+                  className={`items-end mb-4 flex ${message.role === 'assistant' ? 'justify-start' : 'justify-end'}`}
                 >
                   {message.role === 'assistant' && (
                     <Avatar className="mr-2 h-8 w-8">
