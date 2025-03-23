@@ -19,7 +19,7 @@ export default function Home() {
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute right-0 bottom-[70%] left-0 z-10 h-[calc(50%070px)] overflow-y-auto p-4">
+        <div className="absolute bottom-[70%] left-0 right-0 z-10 h-[calc(50% - 70px)] overflow-y-auto p-4">
           <ScrollArea className="h-full">
             {messages.map((message, index) => {
               return (
