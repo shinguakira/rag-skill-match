@@ -19,6 +19,7 @@ const client = new DataAPIClient(ASTRA_DB_APPLICATION_TOKEN);
 const db = client.db(ASTRA_DB_API_ENDPOINT!, { namespace: ASTRA_DB_NAMESPACE });
 
 export async function POST(req: Request) {
+
   const { messages } = await req.json();
   const latestMessage = messages[messages.length - 1]?.content;
 
@@ -49,12 +50,39 @@ export async function POST(req: Request) {
 
   const template = {
     role: 'system',
-    content: `
-         あなたはアニメについて詳しいです。
-         コンテキストで受け取った情報を元に、アニメについて質問を答えることができます。
-         これらのコンテキストは最近のWikipediaページから抽出されました。
-         もしない情報がある場合はあなたの情報を使わないでください。
-         レスポンスに画像は含めないでください。
+    // content: `
+    //      あなたはアニメについて詳しいです。
+    //      コンテキストで受け取った情報を元に、アニメについて質問を答えることができます。
+    //      これらのコンテキストは最近のWikipediaページから抽出されました。
+    //      もしない情報がある場合はあなたの情報を使わないでください。
+    //      レスポンスに画像は含めないでください。
+    //      ----------------
+    //      ${docContext}
+    //      ----------------
+    //      Questions: ${latestMessage}
+    //     `,
+        // content: `
+        //  あなたは神宮章またはAkira Shinguについて詳しいです。
+        //  コンテキストで受け取った情報を元に、神宮章またはAkira Shinguについて質問を答えることができます。
+        //  これらのコンテキストは最近の神宮章またはAkira Shinguのポートフォリオサイトページから抽出されました。
+        //  レスポンスに画像は含めないでください。
+        //  ----------------
+        //  ${docContext}
+        //  ----------------
+        //  Questions: ${latestMessage}
+        // `,
+        content: `
+         you know everything about Akira Shingu.
+         refer these website 
+         https://about-akira-shingu-react.vercel.app/about
+         https://about-akira-shingu-react.vercel.app/certifications
+         https://about-akira-shingu-react.vercel.app/projects
+         https://about-akira-shingu-react.vercel.app/articles
+         https://about-akira-shingu-react.vercel.app/faq
+         Answer questions based on context that I provide.
+         Please give all the information you have as possible based on the website and context.
+         Don't send images as response.
+         基本的に日本語で返答してください。
          ----------------
          ${docContext}
          ----------------
